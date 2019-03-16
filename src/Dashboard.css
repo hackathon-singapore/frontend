@@ -39,9 +39,20 @@
 
 .App {
   margin: 0px auto;
-  padding: 20px;
+  padding-top: 36px;
+  padding-left: 60px;
+  padding-right: 80px;
+  padding-bottom: 36px;
+  background-color: #F1F5F8;
 }
 
 .table__container {
   width: 50%;
+  background: white;
+}
+
+.graph__container {
+  background: white;
+  margin-left: 30px;
+  border: 0.1px solid rgb(228, 228, 228)
 }

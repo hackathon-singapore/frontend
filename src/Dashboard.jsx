@@ -42,7 +42,7 @@ for(var i = 0; i< fliteredData.length; i++) {
   Object.entries(fliteredData[i]).forEach(dataCSV => {
     let key = dataCSV[0];
     let value = dataCSV[1];
-    if(key != 'score'){
+    if(key != 'score' || key != 'id'){
       newArray.push(value)
     }
   })
@@ -82,6 +82,11 @@ class Dashboard extends Component {
 
   fetchData = (idx) => {
     this.setState({showData: true})
+    //fetch API according to Index
+  }
+
+  resetData = () => {
+    this.setState({showData: false})
   }
 
   onDownloadCSV = () => {
@@ -94,7 +99,7 @@ class Dashboard extends Component {
     var link = document.createElement("a");
     link.setAttribute("href", encodedUri);
     link.setAttribute("download", "my_data.csv");
-    document.body.appendChild(link); // Required for FF
+    document.body.appendChild(link);
     link.click();
   }
 
@@ -105,9 +110,10 @@ class Dashboard extends Component {
           <Button onClick = {() => this.props.handleDashboardRouting()} shape="round" type="primary">
             <Icon type="left" />Go back
           </Button>
+          {this.state.showData && <Button onClick = {this.resetData} style={{marginLeft: '12px'}} type="primary" shape="circle" icon="undo" />}
           <Button
             onClick = {this.onDownloadCSV}
-            style={{float: 'right'}} type="primary" shape="round" icon="download" size={"large"}>Download</Button>
+            style={{marginLeft: '850px'}} type="primary" shape="round" icon="download" size={"large"}>Download</Button>
         </div>
         {/* Main Content */}
         <div className="content__container">
@@ -128,7 +134,7 @@ class Dashboard extends Component {
             </div>
           <div>
             <div>
-            <div>
+            <div className="graph__container">
         {this.state.showData &&
         <VictoryChart
             domain={{ x: [0, 10], y: [0, 10] }}
@@ -145,6 +151,13 @@ class Dashboard extends Component {
             ]}
         />
         </VictoryChart>
+        }
+        {!this.state.showData &&
+          <div style={{height: '300px', width: '450px'}}>
+            <p key="p" style={{fontSize: '20px', margin: '30px'}}>
+              Click on Table cells to Generate Graph
+            </p>
+          </div>
         }
       </div>
             </div>
