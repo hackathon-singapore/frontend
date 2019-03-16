@@ -7,9 +7,21 @@ import { VictoryChart, VictoryScatter} from "victory";
 import './Dashboard.css';
 
 const tableData = [
-  {language: 'Hindi', english_text: 'Hello', score: 0.7, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.7, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
+  {language: 'Hindi', english_text: 'Hello', score: 0.7, translated_text: 'Namaste', id: 3456784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.7, translated_text: 'Namaste', id: 45678},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste', id: 56784},
+
 ]
 
 const graphData = [
@@ -68,7 +80,7 @@ class Dashboard extends Component {
         }
     }
 
-  fetchData = () => {
+  fetchData = (idx) => {
     this.setState({showData: true})
   }
 
@@ -101,7 +113,18 @@ class Dashboard extends Component {
         <div className="content__container">
             <div className="table__container">
               {/* Table */}
-              <Table dataSource={tableData} columns={columns} />
+              <Table
+                onRow={(record, rowIndex) => {
+                  return {
+                    onClick: (event) => {
+                      console.log(record, "record")
+                      this.fetchData(record.id)
+                    },
+                  }
+                }}
+                dataSource={tableData}
+                columns={columns}
+              />
             </div>
           <div>
             <div>
