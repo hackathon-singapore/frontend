@@ -7,30 +7,10 @@ import { VictoryChart, VictoryScatter} from "victory";
 import './Dashboard.css';
 
 const tableData = [
-  {language: 'Hindi', english_text: 'Hello', score: 0.7, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.7, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-  {language: 'Hindi', english_text: 'Hello', score: 0.1, translated_text: 'Namaste'},
-]
-
-const graphData = [
-    {type: 'Mean Vector', X: 30, Y: 200},
-    {type: 'Data Set', X: 30, Y: 100},
-    {type: 'Data Set', X: 30, Y: 120},
-    {type: 'Data Set', X: 50, Y: 50},
-    {type: 'Data Set', X: 200, Y: 200},
-    {type: 'Data Set', X: 70, Y: 80},
-    {type: 'Data Set', X: 100, Y: 100},
+  {language: 'Punjabi', english_text: 'ਖਾਤਾ ਹੋਣ ਨਾਲ ਤੁਸੀਂ ਸਵਾਲਾਂ ਦੇ ਜੁਆਬ ਦੇ ਸਕਦੇ ਹੋ, ਯੋਗਦਾਨਾਂ ਦਾ ਹਿਸਾਬ ਰੱਖ ਸਕਦੇ ', score: 0.584, translated_text: 'An account lets you answer questions.'},
+  {language: 'Punjabi', english_text: 'ਤੁਸੀਂ ਆਨਲਾਈਨ ਨਹੀਂ ਹੋ , ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਕੁਨੈਕਸ਼ਨ ਚੈਕ ਕਰੋ ਜੀ।', score: 0.476, translated_text: 'You are not online, please check your connection.'},
+  {language: 'Punjabi', english_text: 'ਆਪਣੇ ਯੰਤਰ ਲਈ ਕਿਸੇ ਦੋਸਤ ਤੋਂ ਮਦਦ ਲਉ ਿਸੇ ਦੋਸਤ ਤੋਂ ਯੰਤਰ ਲਈ ਮਦਦ ਲਉ', score: 0.193, translated_text: 'Get a Buddy to help you with your device.'},
+  {language: 'Punjabi', english_text: 'ਖੁਦ ਬਰਾਊਜ਼ ਕਰੋ। ਸਮੱਗਰੀ ਤੇ ਪਾਬੰਦੀ ਨਾਲ ਪ੍ਰਾਈਵੇਟ ਬਰਾਊਜ਼ਿੰਗ ਰਾਹੀਂ।', score: 0.304, translated_text: 'Browse by yourself. Private Browsing with Content Blocking blocks online trackers that follow you around the web.'},
 ]
 
 const fliteredData = tableData.filter(data => data.score > 0.2)
